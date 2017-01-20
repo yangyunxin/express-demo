@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='http://apps.bdimg.com/libs/todc-bootstrap/3.1.1-3.2.1/todc-bootstrap.min.css' />
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <form>
+      <input type="text" name="uname" value="yangyunxin"/>
+      <input type="password" name="password" value="yangyunxin"/>
+    </form>
+    <input type="button"  onclick="register()" value="注 册" />
+    <p>Welcome to <%= title %></p>
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+    function register(){
+     //通过serialize()方法进行序列化表单值，创建文本字符串。
+     var data = $("form").serialize();
+     console.log(data)
+       //例如："username=张三&password=12345"
+       $.ajax({
+           url:'/register',
+           type:'POST',
+           data:data,
+           success:function(data,status){
+               if(status == 'success'){
+                   console.log(data)
+               }
+           },
+           error:function(res,err){
+               
+           }
+       });
+    }
+    </script>
+  </body>
+</html>
