@@ -34,7 +34,12 @@ router.post('/login', userController.login);
 
 //商品
 router.get('/goods', goodsController.list);
+router.get('/addGoods', function (req, res, next) {
+	res.render('goods_add.ejs', {
 
+	});
+});
+router.post('/addGoods', goodsController.add);
 
 
 module.exports = router;
