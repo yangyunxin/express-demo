@@ -26,10 +26,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
-  secret: 'keyboard cat',
+  secret: 'recommand 128 bytes random string',
   resave: false,
   saveUninitialized: true,
-  cookie: { secure: true }
+  cookie: {}
 }));
 
 app.use('/', routes);

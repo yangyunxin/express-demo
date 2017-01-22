@@ -7,12 +7,12 @@
   </head>
   <body>
     <h1><%= title %></h1>
-    <h2>注册</h2>
+    <h2>登陆</h2>
     <form>
       <input type="text" name="uname" value="yangyunxin"/>
       <input type="password" name="password" value="yangyunxin"/>
     </form>
-    <input type="button"  onclick="register()" value="注 册" />
+    <input type="button"  onclick="register()" value="登 陆" />
     <p>Welcome to <%= title %></p>
     <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
     <script type="text/javascript" src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
@@ -23,12 +23,14 @@
      console.log(data)
        //例如："username=张三&password=12345"
        $.ajax({
-           url:'/register',
+           url:'/login',
            type:'POST',
            data:data,
            success:function(data,status){
                if(status == 'success'){
-                  window.location.href = "/login"
+                  window.location.href = "/"
+               } else {
+                  window.location.href="/login"
                }
            },
            error:function(res,err){

@@ -10,7 +10,6 @@ module.exports = {
 			console.log(doc);
 			//如果存在
 			if (doc) {
-				res.status(500);
 				res.json("用户名已存在");
 			} else {
 				User.create({
@@ -22,5 +21,20 @@ module.exports = {
 				})
 			}
 		});
+	},
+	login: function (req, res, next) {
+		var uname = req.body.uname;
+
+		User.findOne({name: uname}, function (err, doc) {
+			if (err) return next(err);
+
+			if (doc) {
+				req.session.user = uname;
+				console.log(req.session.user)
+				res.json("success");
+			} else {
+				res.json("fail");
+			}
+		})
 	}
 }

@@ -8,6 +8,16 @@
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+    <ul>
+      <% goods.forEach(function (good) { %>
+        <li>
+          <img src="<%= good.imgSrc %>">
+          <p><%= good.name %></p>
+        </li>
+      <% }) %>
+  
+    </ul>
+    
     <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
     <script type="text/javascript" src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
   </body>
